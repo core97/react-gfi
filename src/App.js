@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ListOfMovies } from './container/ListOfMovies'
+import { Home } from './pages/Home'
 
 export const App = () => {
-  return <ListOfMovies title='batman' page={1} />
+  return <Home />
 }
