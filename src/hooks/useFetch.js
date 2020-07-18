@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 import { useState, useEffect } from 'react'
 
 export function useFetch (url, options) {
@@ -9,7 +7,7 @@ export function useFetch (url, options) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(url, options)
+        const res = await window.fetch(url, options)
         const json = await res.json()
         setResponse(json)
       } catch (error) {

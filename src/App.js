@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { ListOfMovies } from './container/ListOfMovies'
+
 export const App = () => {
-  return <h1>Hello from App component</h1>
+  return <ListOfMovies title='batman' page={1} />
 }

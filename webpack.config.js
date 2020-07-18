@@ -3,6 +3,7 @@ const { SourceMapDevToolPlugin } = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     filename: 'app.bundle.js',
     publicPath: '/'
