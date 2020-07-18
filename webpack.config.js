@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { SourceMapDevToolPlugin } = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   output: {
@@ -12,7 +13,8 @@ module.exports = {
     }),
     new SourceMapDevToolPlugin({
       filename: '[file].map'
-    })
+    }),
+    new MiniCssExtractPlugin('style.css')
   ],
   module: {
     rules: [
@@ -31,6 +33,10 @@ module.exports = {
         test: /\.js$/,
         enforce: 'pre',
         use: ['source-map-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   }
