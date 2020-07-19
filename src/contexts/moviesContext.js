@@ -2,7 +2,8 @@ import React, { createContext, useReducer } from 'react'
 
 const initialState = {
   movies: [],
-  page: 1
+  page: 1,
+  totalMovies: 0
 }
 
 export const actions = {
@@ -16,13 +17,15 @@ const reducer = (state, action) => {
     case actions.addMovies:
       return {
         ...state,
-        movies: [...state.movies, ...action.payload.movies]
+        movies: [...state.movies, ...action.payload.movies],
+        totalMovies: action.payload.totalMovies
       }
     case actions.deleteMovies:
       return {
         ...state,
         movies: [],
-        page: 1
+        page: 1,
+        totalMovies: 0
       }
     case actions.nextPage:
       return {

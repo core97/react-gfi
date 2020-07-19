@@ -15,7 +15,7 @@ export const ListOfMovies = ({ title }) => {
         const res = await fetchMovies(title, state.page)
         dispatch({
           type: actions.addMovies,
-          payload: { movies: [...res.Search] }
+          payload: { movies: [...res.Search], totalMovies: res.totalResults }
         })
         setErrorFetch(false)
       } catch (error) {

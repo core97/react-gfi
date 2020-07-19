@@ -9,14 +9,18 @@ import './styles.scss'
 
 export const ListOfMoviesComponent = ({ movies }) => {
   const [isVisibleLastItem, setIsVisibleLastItem] = useState(false)
-  const [, dispatch] = useContext(MoviesContext)
+  const [state, dispatch] = useContext(MoviesContext)
 
   useEffect(() => {
-    dispatch({ type: actions.nextPage })
+    if (state.movies.length < state.totalMovies) {
+      if (isVisibleLastItem) dispatch({ type: actions.nextPage })
+    }
   }, [])
 
   useEffect(() => {
-    if (isVisibleLastItem) dispatch({ type: actions.nextPage })
+    if (state.movies.length < state.totalMovies) {
+      if (isVisibleLastItem) dispatch({ type: actions.nextPage })
+    }
   }, [isVisibleLastItem])
 
   return (
