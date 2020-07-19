@@ -1,25 +1,33 @@
 import React, { createContext, useReducer } from 'react'
 
 const initialState = {
-  movies: []
+  movies: [],
+  page: 1
 }
 
 export const actions = {
   addMovies: 'ADD_MOVIES',
-  deleteMovies: 'DELETE_MOVIES'
+  deleteMovies: 'DELETE_MOVIES',
+  nextPage: 'NEXT_PAGE'
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_MOVIES':
+    case actions.addMovies:
       return {
         ...state,
         movies: [...state.movies, ...action.payload.movies]
       }
-    case 'DELETE_MOVIES':
+    case actions.deleteMovies:
       return {
         ...state,
-        movies: []
+        movies: [],
+        page: 1
+      }
+    case actions.nextPage:
+      return {
+        ...state,
+        page: state.page + 1
       }
     default:
       return state
