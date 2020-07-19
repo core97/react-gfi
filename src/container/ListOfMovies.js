@@ -26,7 +26,6 @@ export const ListOfMovies = ({ title }) => {
     if (title) getMovies()
   }, [title, state.page])
 
-  if (!title) return <h2>Escribe alguna película</h2>
   if (errorFetch) return <h2>Error en la petición</h2>
   if (!state.movies) return <h2>Cargando</h2>
 

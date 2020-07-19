@@ -15,7 +15,7 @@ export const Home = () => {
   const onSubmit = (data, e) => {
     setTitle(data.title)
     dispatch({ type: actions.deleteMovies })
-    e.target.reset()
+    // e.target.reset()
   }
 
   return (

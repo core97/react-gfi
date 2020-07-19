@@ -2,15 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from '@reach/router'
 
+import { FavButton } from '../FavButton'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+
 import './styles.scss'
 
 export const MovieCard = ({ movie }) => {
+  const key = `like-${movie.imdbID}`
+  const [liked, setLiked] = useLocalStorage(key, false)
+
   return (
-    <Link to={`/movie/${movie.imdbID}`}>
-      <div className='MovieCard'>
+    <div className='MovieCard'>
+      <Link to={`/movie/${movie.imdbID}`}>
         <h3>{movie.Title}</h3>
-      </div>
-    </Link>
+      </Link>
+      <FavButton liked={liked} onClick={() => setLiked(!liked)} />
+    </div>
   )
 }
 
