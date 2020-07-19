@@ -2,10 +2,10 @@ import React from 'react'
 
 import './styles.scss'
 
-export const MovieDetails = ({ imdbID }) => {
+export const MovieDetailsComponent = ({ movieDetails }) => {
   return (
     <div className='MovieDetails'>
-      <h2>{imdbID}</h2>
+      <h2>{movieDetails.Title}</h2>
     </div>
   )
 }
