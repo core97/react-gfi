@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import { ListOfMovies } from '../../container/ListOfMovies'
 import { Textfield } from '../../components/Textfield'
-import { MoviesContext, actions } from '../../contexts/moviesContext'
+import { MoviesContext, actions } from '../../contexts/MoviesContext'
 
 import './styles.scss'
 

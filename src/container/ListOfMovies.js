@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { ListOfMoviesComponent } from '../components/ListOfMovies'
-import { MoviesContext, actions } from '../contexts/moviesContext'
+import { MoviesContext, actions } from '../contexts/MoviesContext'
 import { fetchMovies } from '../services/omdbAPI'
 
 export const ListOfMovies = ({ title }) => {

@@ -3,19 +3,20 @@ import { useForm } from 'react-hook-form'
 import { navigate } from '@reach/router'
 
 import { Textfield } from '../../components/Textfield'
-import { useSessionStorage } from '../../hooks/useSessionStorage'
 import userData from '../../user.mock.json'
 
 import './styles.scss'
 
-export const Login = () => {
+const JWT =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+
+export const Login = ({ activateAuth }) => {
   const { username, password } = userData
-  const key = `isLogged-${username}`
-  const [, setIsLogged] = useSessionStorage(key, false)
   const { register, errors, handleSubmit } = useForm()
 
   const onSubmit = async (data) => {
-    setIsLogged(true)
+    window.sessionStorage.setItem('token', JWT)
+    activateAuth()
     navigate('/')
   }
 
@@ -34,7 +35,6 @@ export const Login = () => {
               value: new RegExp(`^${username}$`),
               message: 'Usuario incorrecto'
             }
-
           })}
           errors={errors}
         />
@@ -51,7 +51,6 @@ export const Login = () => {
               value: new RegExp(`^${password}$`),
               message: 'Contraseña incorrecta'
             }
-
           })}
           errors={errors}
         />

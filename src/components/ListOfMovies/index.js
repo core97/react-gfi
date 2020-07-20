@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import VizSensor from 'react-visibility-sensor'
 
 import { MovieCard } from '../MovieCard'
-import { MoviesContext, actions } from '../../contexts/moviesContext'
+import { MoviesContext, actions } from '../../contexts/MoviesContext'
 
 import './styles.scss'
 
