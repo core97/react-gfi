@@ -4,7 +4,7 @@ import { MovieDetailsComponent } from '../components/MovieDetails'
 import { fecthMovieById } from '../services/omdbAPI'
 
 export const MovieDetails = ({ movieId }) => {
-  const [movie, setMovie] = useState({})
+  const [movie, setMovie] = useState(null)
   const [errorFetch, setErrorFetch] = useState(false)
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export const MovieDetails = ({ movieId }) => {
   }, [])
 
   if (errorFetch) return <h2>Error en los detalles de la peli</h2>
+  if (!movie) return <h2>Cargando</h2>
 
   return <MovieDetailsComponent movieDetails={movie} />
 }

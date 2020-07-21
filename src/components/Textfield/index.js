@@ -11,7 +11,7 @@ export const Textfield = ({
   errors
 }) => {
   return (
-    <div>
+    <div className='Textfield'>
       <input type={type} placeholder={placeholder} name={name} ref={register} />
       {errors[name] && <p>{errors[name].message}</p>}
     </div>

@@ -15,12 +15,6 @@ export const ListOfMoviesComponent = ({ movies }) => {
     if (state.movies.length < state.totalMovies) {
       if (isVisibleLastItem) dispatch({ type: actions.nextPage })
     }
-  }, [])
-
-  useEffect(() => {
-    if (state.movies.length < state.totalMovies) {
-      if (isVisibleLastItem) dispatch({ type: actions.nextPage })
-    }
   }, [isVisibleLastItem])
 
   return (
@@ -28,17 +22,20 @@ export const ListOfMoviesComponent = ({ movies }) => {
       {movies.map((movie, index) =>
         movies.length === index + 1 ? (
           /* Last item of array */
-          <VizSensor
-            key={movie.imdbID}
-            offset={{ top: 0 }}
-            onChange={() => {
-              setIsVisibleLastItem(!isVisibleLastItem)
-            }}
-          >
-            <MovieCard movie={movie} />
-          </VizSensor>
+          <div className='ListOfMovies__item' key={movie.imdbID}>
+            <VizSensor
+              offset={{ top: 0 }}
+              onChange={() => {
+                setIsVisibleLastItem(!isVisibleLastItem)
+              }}
+            >
+              <MovieCard movie={movie} />
+            </VizSensor>
+          </div>
         ) : (
-          <MovieCard movie={movie} key={movie.imdbID} />
+          <div className='ListOfMovies__item' key={movie.imdbID}>
+            <MovieCard movie={movie} />
+          </div>
         )
       )}
     </ul>

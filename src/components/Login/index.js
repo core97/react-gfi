@@ -21,7 +21,7 @@ export const Login = ({ activateAuth }) => {
   }
 
   return (
-    <div>
+    <div className='Login'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Textfield
           placeholder='Usuario'
@@ -54,7 +54,7 @@ export const Login = ({ activateAuth }) => {
           })}
           errors={errors}
         />
-        <button type='submit'>Entrar</button>
+        <button type='submit' className='button'>Entrar</button>
       </form>
     </div>
   )

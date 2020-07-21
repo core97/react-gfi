@@ -19,10 +19,10 @@ export const Home = () => {
   }
 
   return (
-    <div>
+    <div className='Home'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Textfield
-          placeholder='Introduce el título de la película'
+          placeholder='Buscar película'
           name='title'
           register={register({
             required: true,
@@ -33,7 +33,7 @@ export const Home = () => {
           })}
           errors={errors}
         />
-        <button type='submit'>Buscar</button>
+        <button className='button' type='submit'>Buscar</button>
       </form>
       <ListOfMovies title={title} />
     </div>

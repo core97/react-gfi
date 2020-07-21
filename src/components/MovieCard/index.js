@@ -11,12 +11,21 @@ export const MovieCard = ({ movie }) => {
   const key = `like-${movie.imdbID}`
   const [liked, setLiked] = useLocalStorage(key, false)
 
+  const addDefaultSrc = (ev) => {
+    ev.target.src = 'https://res.cloudinary.com/dyjfq7bd7/image/upload/v1591612177/guvwrnk2vd8p8u1bcquy.png'
+  }
+
   return (
     <div className='MovieCard'>
       <Link to={`/movie/${movie.imdbID}`}>
-        <h3>{movie.Title}</h3>
+        <div className='MovieCard__imgWrapper'>
+          <img onError={addDefaultSrc} src={movie.Poster} alt={movie.Title} />
+        </div>
       </Link>
-      <FavButton liked={liked} onClick={() => setLiked(!liked)} />
+      <div className='MovieCard__content'>
+        <FavButton liked={liked} onClick={() => setLiked(!liked)} />
+        <h3>{movie.Title}</h3>
+      </div>
     </div>
   )
 }

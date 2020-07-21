@@ -1,7 +1,7 @@
 header {
     height: 60px;
     background-color: #2d2d2d;
-    padding: 0 10px;
+    padding: 0 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,11 +32,17 @@ header {
     justify-content: center;
     align-items: center;
     color: #fff;
+
+    & p {
+      cursor: default;
+    }
   }
 
   .content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
     /* total screen less header and footer */
     min-height: calc(100vh - 120px);
     padding: 50px;
