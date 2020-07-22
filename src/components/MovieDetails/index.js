@@ -9,7 +9,6 @@ import './styles.scss'
 export const MovieDetailsComponent = ({ movieDetails }) => {
   const key = `like-${movieDetails.imdbID}`
   const [liked, setLiked] = useLocalStorage(key)
-  console.log(liked)
 
   const addDefaultSrc = (ev) => {
     ev.target.src =
@@ -41,31 +40,31 @@ MovieDetailsComponent.propTypes = {
   movieDetails: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Year: PropTypes.string.isRequired,
-    Rated: PropTypes.string.isRequired,
-    Released: PropTypes.string.isRequired,
-    Runtime: PropTypes.string.isRequired,
-    Genre: PropTypes.string.isRequired,
-    Director: PropTypes.string.isRequired,
-    Writer: PropTypes.string.isRequired,
-    Actors: PropTypes.string.isRequired,
+    Rated: PropTypes.string,
+    Released: PropTypes.string,
+    Runtime: PropTypes.string,
+    Genre: PropTypes.string,
+    Director: PropTypes.string,
+    Writer: PropTypes.string,
+    Actors: PropTypes.string,
     Plot: PropTypes.string.isRequired,
-    Language: PropTypes.string.isRequired,
-    Country: PropTypes.string.isRequired,
-    Awards: PropTypes.string.isRequired,
+    Language: PropTypes.string,
+    Country: PropTypes.string,
+    Awards: PropTypes.string,
     Poster: PropTypes.string.isRequired,
     Ratings: PropTypes.arrayOf(
       PropTypes.shape({
-        Source: PropTypes.string.isRequired,
-        Value: PropTypes.string.isRequired
+        Source: PropTypes.string,
+        Value: PropTypes.string
       })
     ),
-    Metascore: PropTypes.string.isRequired,
+    Metascore: PropTypes.string,
     imdbRating: PropTypes.string.isRequired,
-    imdbVotes: PropTypes.string.isRequired,
+    imdbVotes: PropTypes.string,
     imdbID: PropTypes.string.isRequired,
-    Type: PropTypes.string.isRequired,
-    DVD: PropTypes.string.isRequired,
-    BoxOffice: PropTypes.string.isRequired,
-    Production: PropTypes.string.isRequired
+    Type: PropTypes.string,
+    DVD: PropTypes.string,
+    BoxOffice: PropTypes.string,
+    Production: PropTypes.string
   }).isRequired
 }
