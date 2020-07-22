@@ -1,11 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { SourceMapDevToolPlugin } = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
     filename: 'app.bundle.js',
+    path: path.resolve(__dirname, 'public'),
     publicPath: '/'
   },
   plugins: [
