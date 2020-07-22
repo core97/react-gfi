@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import VizSensor from 'react-visibility-sensor'
+import { Spinner } from '../Spinner'
 
 import { MovieCard } from '../MovieCard'
 import { MoviesContext, actions } from '../../contexts/MoviesContext'
@@ -18,27 +19,30 @@ export const ListOfMoviesComponent = ({ movies }) => {
   }, [isVisibleLastItem])
 
   return (
-    <ul className='ListOfMovies'>
-      {movies.map((movie, index) =>
-        movies.length === index + 1 ? (
-          /* Last item of array */
-          <div className='ListOfMovies__item' key={movie.imdbID}>
-            <VizSensor
-              offset={{ top: 0 }}
-              onChange={() => {
-                setIsVisibleLastItem(!isVisibleLastItem)
-              }}
-            >
+    <>
+      <ul className='ListOfMovies'>
+        {movies.map((movie, index) =>
+          movies.length === index + 1 ? (
+            /* Last item of array */
+            <div className='ListOfMovies__item' key={movie.imdbID}>
+              <VizSensor
+                offset={{ top: 0 }}
+                onChange={() => {
+                  setIsVisibleLastItem(!isVisibleLastItem)
+                }}
+              >
+                <MovieCard movie={movie} />
+              </VizSensor>
+            </div>
+          ) : (
+            <div className='ListOfMovies__item' key={movie.imdbID}>
               <MovieCard movie={movie} />
-            </VizSensor>
-          </div>
-        ) : (
-          <div className='ListOfMovies__item' key={movie.imdbID}>
-            <MovieCard movie={movie} />
-          </div>
-        )
-      )}
-    </ul>
+            </div>
+          )
+        )}
+      </ul>
+      {state.movies.length < state.totalMovies && <Spinner />}
+    </>
   )
 }
 

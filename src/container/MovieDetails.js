@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { MovieDetailsComponent } from '../components/MovieDetails'
 import { fecthMovieById } from '../services/omdbAPI'
+import { Spinner } from '../components/Spinner'
 
 export const MovieDetails = ({ movieId }) => {
   const [movie, setMovie] = useState(null)
@@ -21,7 +22,7 @@ export const MovieDetails = ({ movieId }) => {
   }, [])
 
   if (errorFetch) return <h2>Error en los detalles de la peli</h2>
-  if (!movie) return <h2>Cargando</h2>
+  if (!movie) return <Spinner />
 
   return <MovieDetailsComponent movieDetails={movie} />
 }

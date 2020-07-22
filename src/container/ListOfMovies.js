@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
+import { Spinner } from '../components/Spinner'
 
 import { ListOfMoviesComponent } from '../components/ListOfMovies'
 import { MoviesContext, actions } from '../contexts/MoviesContext'
@@ -27,7 +28,7 @@ export const ListOfMovies = ({ title }) => {
   }, [title, state.page])
 
   if (errorFetch) return <h2>Error en la petición</h2>
-  if (!state.movies) return <h2>Cargando</h2>
+  if (!state.movies) return <Spinner />
 
   return <ListOfMoviesComponent movies={state.movies} />
 }
