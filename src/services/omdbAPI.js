@@ -1,6 +1,6 @@
 const API_KEY = 'f12ba140'
 
-const BASE_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`
+const BASE_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`
 
 const buildUrl = (query = '') => `${BASE_URL}${query}`
 
