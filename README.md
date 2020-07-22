@@ -2,7 +2,7 @@ This project is a Frontend challenge for the GFI company
 
 ## Includes
 
-* Form validation with the [https://react-hook-form.com/](reac-hook-form) library.
+* Form validation with the [react-hook-form](https://react-hook-form.com/) library.
 * Custom hook (*useLocalStorage*) to save and get favorite movies.
 * Lazy load when you are looking for movies.
 * Context of movies (*MoviesContext*) as a global state.
