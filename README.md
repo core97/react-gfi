@@ -3,9 +3,12 @@ This project is a Frontend challenge for the GFI company
 ## Includes
 
 * Form validation with the [react-hook-form](https://react-hook-form.com/) library.
-* Custom hook (*useLocalStorage*) to save and get favorite movies.
+* Custom hook (*useLocalStorage*) to save and get favorite movies from Local Storage.
 * Lazy load when you are looking for movies.
 * Context of movies (*MoviesContext*) as a global state.
+* Authentication context with Sesion Storage.
+* Webpack configuration for JS and Sass.
+* API to consume: [omdb](http://www.omdbapi.com/?)
 
 ## Available Scripts
 
